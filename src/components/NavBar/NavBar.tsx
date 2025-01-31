@@ -7,12 +7,13 @@ export const NavBar = () => {
   function linkPag(item: string) {
     if (['HOME', 'NOSSA HISTÓRIA', "GR's"].some((e) => e.includes(item))) {
       switch (item.toLowerCase()) {
-          case 'home': return ''
-          case 'nossa história': return 'historia'
-          case "gr's": return "grs"
+          case 'home': return '/'
+          case 'nossa história': return '/historia'
+          case "gr's": return '/grs'
+          default: return '/'
       }
     }else {
-        return item.toLowerCase()
+        return `/${item.toLowerCase()}`
       }
     }
   

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import LogoLeao from '../../assets/leao.svg?react'
 import { YoutubeVideo } from '../YoutubeVideo/YoutubeVideo'
 import { Card } from './Card/Card'
