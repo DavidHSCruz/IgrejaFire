@@ -10,7 +10,7 @@ export const Home = () => {
       <div className="bg-[url('/img/comunhao.png')] bg-cover bg-center w-full h-96 py-60"></div>
 
       <Banner />
-      <section className="grid grid-cols-3 gap-20 w-5/6 m-auto items-center px-24 font-montserrat">
+      <section className="grid grid-cols-3 gap-20 w-5/6 m-auto items-center px-24">
         <Card className="-translate-y-1/2 -translate-x-1/3 min-w-[190px] max-w-[550px] h-80 w-full flex justify-center items-center bg-[url('/img/imagem1.jpg')] bg-cover bg-center border-solid border-8 border-zinc-50">
         </Card>
         <Formulario type='contato'/>

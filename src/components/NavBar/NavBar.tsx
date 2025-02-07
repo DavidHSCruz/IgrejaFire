@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
-import Logo from '../../assets/coroa.svg?react'
+import { Link, useLocation } from "react-router-dom"
+import Logo from '../../assets/LOGO_FIRE.svg?react'
 
 export const NavBar = () => {
   const navegacao: string[] = ['HOME', 'NOSSA HISTÓRIA', "GR's", 'AGENDA', 'DOE']
 
-  function linkPag(item: string) {
+  function NavStr(item: string) {
     if (['HOME', 'NOSSA HISTÓRIA', "GR's"].some((e) => e.includes(item))) {
       switch (item.toLowerCase()) {
           case 'home': return '/'
@@ -17,18 +17,27 @@ export const NavBar = () => {
       }
     }
   
+  function LocateURL(nav: string) {
+    const url = useLocation().pathname
+    const URLClicado = NavStr(nav)
+
+    if (url === URLClicado) {
+      return 'font-medium border-b-2'
+    }
+  }
+  
   return (
-    <header className="flex relative">
-      <Logo className="w-10 h-10 mx-3 z-10 text-red-700" />
-      <nav className="w-full bg-slate-50 absolute z-0">
-        <ul className="flex justify-center">
+    <header className="flex items-center h-28 bg-slate-50">
+      <Logo className="w-24 h-full mx-10 z-10 text-red-700 -translate-y-1" />
+      <nav className="w-full">
+        <ul className="flex">
           {
             navegacao.map((nav, i) => (
               <li
-                className="px-4 py-2 hover:font-medium text-gray-800"
+                className={`${LocateURL(nav)} mx-4 hover:font-medium hover:border-b-2 text-gray-800`}
                 key={i}
               >
-                <Link to={linkPag(nav)}>{nav}</Link>
+                <Link to={NavStr(nav)}>{nav}</Link>
               </li>
             ))
           }
