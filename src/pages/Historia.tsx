@@ -2,7 +2,7 @@ import { Card } from "../components/Banner/Card/Card"
 
 export const Historia = () => {
   return (
-    <main className="bg-zinc-950 text-zinc-400 flex justify-center">
+    <main className="bg-zinc-950 text-zinc-400 flex justify-center mt-28">
       <section className="grid grid-cols-2 grid-rows-4 w-3/4 py-20 gap-x-20 gap-y-5">
         <div className="text-lg leading-loose row-span-4">
           <h1 className="text-4xl text-zinc-300 font-bold pb-4 font-montserrat">POR QUE FIRE?</h1>

@@ -5,7 +5,7 @@ import { CardClick } from "../components/Banner/Card/CardClick/CardClick"
 
 export const Home = () => {
   return (
-    <main className="bg-zinc-950">
+    <main className="bg-zinc-950 mt-28">
       {/*criar SLIDER*/}
       <div className="bg-[url('/img/comunhao.png')] bg-cover bg-center w-full h-96 py-60"></div>
 
