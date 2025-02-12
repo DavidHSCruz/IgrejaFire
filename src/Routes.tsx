@@ -7,7 +7,6 @@ import { Footer } from './components/Footer/Footer'
 import { Home } from './pages/Home'
 import { Historia } from './pages/Historia'
 import { Grs } from './pages/Grs'
-import { Agenda } from './pages/Agenda'
 
 
 function ScrollToTop() {
@@ -31,7 +30,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/historia" element={<Historia />} />
           <Route path="/grs" element={<Grs />} />
-          <Route path="/agenda" element={<Agenda />} />
         </Routes>
         <Footer />
       </BrowserRouter>

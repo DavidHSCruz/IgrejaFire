@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 import Logo from '../../assets/LOGO_FIRE.svg?react'
 
 export const NavBar = () => {
-  const [ visible, setVisible ] = useState(false)
+  const [ visible, setVisible ] = useState(true)
+  const [ doeVisible, setDoeVisible ] = useState(false)
 
   useEffect(() => {
     let lastScrollY = window.scrollY
@@ -25,7 +26,7 @@ export const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navegacao: string[] = ['HOME', 'NOSSA HISTÓRIA', "GR's", 'AGENDA', 'DOE']
+  const navegacao: string[] = ['HOME', 'NOSSA HISTÓRIA', "GR's"]
 
   function NavStr(item: string) {
     if (['HOME', 'NOSSA HISTÓRIA', "GR's"].some((e) => e.includes(item))) {
@@ -64,6 +65,17 @@ export const NavBar = () => {
               </li>
             ))
           }
+          <li>
+            <div className="absolute">
+              <button 
+                className="mx-4 hover:font-medium hover:border-b-2 text-gray-800"
+                onClick={() => setDoeVisible(!doeVisible)}
+              >DOE
+              </button>
+              <div className={`${doeVisible ? 'opacity-100' : 'opacity-0'} relative w-10 h-8`}>
+              </div>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
