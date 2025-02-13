@@ -8,9 +8,10 @@ export default {
     extend: {
       colors: {
         'primary': '#eeeeee',
-        'secondary': '#D84040',
-        'tertiary': '#8E1616',
-        'quaternary': '#1D1616',
+        'secondary': '#EA3539',
+        'tertiary': '#30475E',
+        'quaternary': '#09090B',
+        'quinary': '#222831',
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],

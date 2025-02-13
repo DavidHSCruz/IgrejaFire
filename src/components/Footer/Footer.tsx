@@ -31,12 +31,12 @@ export const Footer = () => {
   
   
   return (
-    <footer className="bg-zinc-900 text-gray-300 py-6">
+    <footer className="bg-quinary text-primary py-6">
       <div className="container mx-auto text-center">
         <div className="mb-4">
-          <h4 className="text-lg font-semibold text-gray-100">Entre em contato</h4>
-          <p>Email: {informacoes.email}</p>
-          <p>Telefone: {informacoes.telefone}</p>
+          <h4 className="text-lg font-semibold">Entre em contato</h4>
+          <p className="opacity-90">Email: {informacoes.email}</p>
+          <p className="opacity-90">Telefone: {informacoes.telefone}</p>
         </div>
         <div className="flex justify-center space-x-5 mb-4">
           {
@@ -46,7 +46,7 @@ export const Footer = () => {
                 to={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white text-4xl"
+                className="hover:text-primary text-4xl hover:brightness-125 transition-all"
               >{icon}</Link>
             ))
           }

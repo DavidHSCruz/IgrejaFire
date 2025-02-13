@@ -3,12 +3,12 @@ import { Card } from "../components/Banner/Card/Card"
 
 export const Grs = () => {
   return (
-    <main className="bg-zinc-950 text-zinc-300 p-6 text-lg mt-28">
+    <main className="bg-quaternary text-primary p-6 text-lg mt-28">
       <section className="grid grid-cols-2 grid-rows-6 row items-center gap-20 w-3/4 mx-auto mt-28">
         <div className="row-span-3">
-          <h1 className="text-9xl font-bold text-zinc-50 -indent-2">GR's</h1>
-          <h2 className="text-4xl text-zinc-300 mr-5 mb-2">Grupos de Relacionamento</h2>
-          <p>Os Grupos de Relacionamento (GR's) são muito mais<br /> do que simples encontros semanais.
+          <h1 className="text-9xl font-bold -indent-2">GR's</h1>
+          <h2 className="text-4xl mr-5 mb-2">Grupos de Relacionamento</h2>
+          <p className="opacity-90">Os Grupos de Relacionamento (GR's) são muito mais<br /> do que simples encontros semanais.
           </p>
           <h3 className="text-2xl font-medium mt-16">Por que participar de um GR?</h3>
           <div className="mt-6 indent-5 space-y-4">
@@ -30,7 +30,7 @@ export const Grs = () => {
         <div className="row-start-6 col-span-2">
           <Link 
             to='/encontrar-gr'
-            className="bg-red-700 flex justify-center items-center text-white px-6 mt-16 w-full h-20 rounded-xl text-lg font-semibold hover:bg-red-500"
+            className="bg-secondary flex justify-center items-center px-6 w-full h-20 rounded-xl text-lg font-semibold hover:brightness-125"
           >Encontrar uma GR
           </Link>
         </div>

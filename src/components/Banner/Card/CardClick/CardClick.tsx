@@ -14,7 +14,7 @@ export const CardClick = ({children, to, bg}: CardClickProps) => {
                 style={{backgroundImage: `url(${bg})`}}
                 className='absolute w-full h-full bg-cover bg-center contrast-75 group-hover:contrast-75 group-hover:brightness-50 group-hover:scale-110 transition-all ease-in-out'>
             </span>
-            <p className="text-2xl text-zinc-300 z-10 opacity-0 group-hover:opacity-100 transition-opacity ease-in-out">{children}</p>
+            <p className="text-2xl text-primary z-10 opacity-0 group-hover:opacity-100 transition-opacity ease-in-out">{children}</p>
         </Link>
     </Card>
   )
