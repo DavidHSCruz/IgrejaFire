@@ -1,7 +1,8 @@
 import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import { NavBar } from './components/NavBar/NavBar'
+import { NavBarMobile } from './components/NavBarMobile/NavBarMobile'
 import { Footer } from './components/Footer/Footer'
 
 import { Home } from './pages/Home'
@@ -19,13 +20,25 @@ function ScrollToTop() {
   return null
 }
 
+function SelectNavBar(setWidth: (width: number) => void) {
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth)
+    window.addEventListener("resize", handleWindowResize)
+    return () => window.removeEventListener("resize", handleWindowResize)
+  }, [])
+}
+
 function App() {
+  const [width, setWidth] = useState(window.innerWidth)
+  SelectNavBar(setWidth)
 
   return (
     <>
       <BrowserRouter>
         <ScrollToTop />
-        <NavBar />
+        {
+          width >= 768 ? <NavBar /> : <NavBarMobile />
+        }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/historia" element={<Historia />} />

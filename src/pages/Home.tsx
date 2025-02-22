@@ -1,29 +1,30 @@
 import { Banner } from "../components/Banner/Banner"
-import { Card } from "../components/Banner/Card/Card"
 import { Formulario } from "../components/Formulario/Formulario"
 import { CardClick } from "../components/Banner/Card/CardClick/CardClick"
 
 export const Home = () => {
   return (
-    <main className="bg-quaternary mt-28">
-      {/*criar SLIDER*/}
-      <div className="bg-[url('/img/comunhao.png')] bg-cover bg-center w-full h-96 py-60"></div>
+    <main className="bg-quaternary md:mt-28 mt-16">
+      {/* Slider responsivo */}
+      <div className="bg-[url('/img/comunhao.png')] bg-cover bg-center w-full h-60 md:h-96 py-40 md:py-60"></div>
 
       <Banner />
-      <section className="grid grid-cols-3 gap-20 w-5/6 m-auto items-center px-24">
-        <Card className="-translate-y-1/2 -translate-x-1/3 min-w-[190px] max-w-[550px] h-80 w-full flex justify-center items-center bg-[url('/img/imagem1.jpg')] bg-cover bg-center border-solid border-8 border-primary">
-        </Card>
-        <Formulario type='contato'/>
-        <div className='text-primary col-start-3 mb-12'>
-          <p className='text-4xl -translate-x-2'>Te damos boas-vindas!</p>
-          <p className='text-xl max-w-[410px] py-4 opacity-90'>Estamos de portas abertas para cada um que deseja que Jesus Cristo reine em seu coração.</p>
-          <p className='text-2xl opacity-90'>Juntos,</p>
-          <p className='text-xl opacity-90'>Somos Um, Somos FIRE!</p>
+
+      <section className="grid grid-cols-1 md:grid-cols-6 gap-8 md:gap-20 w-11/12 md:w-5/6 m-auto items-center px-4 md:px-24">
+        <Formulario className="md:col-span-3" type='inscricao' />
+        <div className="text-primary md:col-start-5 md:col-span-2 mb-8 md:mb-12 text-center md:text-left">
+          <p className="text-3xl md:text-4xl md:-translate-x-2">Te damos boas-vindas!</p>
+          <p className="text-base md:text-xl max-w-full md:max-w-[410px] py-2 md:py-4 opacity-90">
+            Estamos de portas abertas para cada um que deseja que Jesus Cristo reine em seu coração.
+          </p>
+          <p className="text-lg md:text-2xl opacity-90">Juntos,</p>
+          <p className="text-base md:text-xl opacity-90">Somos Um, Somos FIRE!</p>
         </div>
       </section>
+
       <section>
-        <div className="grid grid-cols-2 gap-28 w-3/4 justify-self-center py-20">
-          <CardClick bg='/img/imagem3.jpg' to='/agenda'>Nossa Agenda</CardClick>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-28 w-11/12 md:w-3/4 m-auto py-8 md:py-20">
+          <CardClick bg='/img/imagem3.jpg' to='/historia'>Nossa História</CardClick>
           <CardClick bg='/img/pessoas1.jpg' to='/grs'>Grupos de Relacionamento</CardClick>
         </div>
       </section>

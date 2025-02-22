@@ -6,8 +6,9 @@ interface InputProps {
     minLength?: number
     maxLength?: number
     required?: boolean
-    name?: 'nome' | 'email' | 'telefone' | 'mensagem'
-    type: 'text' | 'number' | 'submit' | 'tel' | 'email'
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+    name?: 'nome' | 'email' | 'telefone' | 'nascimento' | 'mensagem'
+    type: 'text' | 'number' | 'submit' | 'tel' | 'email' | 'date'
 }
 
 export const Input = ({className = '', ...props}: InputProps) => {
