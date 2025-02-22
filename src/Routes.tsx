@@ -25,7 +25,7 @@ function SelectNavBar(setWidth: (width: number) => void) {
     const handleWindowResize = () => setWidth(window.innerWidth)
     window.addEventListener("resize", handleWindowResize)
     return () => window.removeEventListener("resize", handleWindowResize)
-  }, [])
+  }, [setWidth])
 }
 
 function App() {

@@ -47,11 +47,11 @@ export const NavBarMobile = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 shadow-lg transition-all">
+    <header className={`bg-primary fixed top-0 left-0 w-full z-50 shadow-lg transition-all ${
+      visible ? "translate-y-0" : "-translate-y-full"
+    }`}>
       <div
-        className={`bg-primary flex items-center justify-between h-16 px-4 transition-transform ${
-          visible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className="flex items-center justify-between h-16 px-4 transition-transform"
       >
         <Logo className="w-20 h-full text-secondary" />
         <button

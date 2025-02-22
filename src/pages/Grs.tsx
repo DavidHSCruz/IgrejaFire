@@ -3,7 +3,7 @@ import { Card } from "../components/Banner/Card/Card"
 
 export const Grs = () => {
   return (
-    <main className="bg-quaternary text-primary p-6 text-lg mt-28">
+    <main className="bg-quaternary text-primary p-6 text-lg md:mt-28 mt-16">
       <section className="grid grid-cols-1 md:grid-cols-2 gap-20 w-11/12 md:w-3/4 mx-auto mt-28">
         {/* Bloco 1: Texto principal */}
         <div className="order-1 md:order-none md:row-span-3">
