@@ -10,7 +10,7 @@ export const Home = () => {
 
       <Banner />
 
-      <section className="grid grid-cols-1 md:grid-cols-6 gap-8 md:gap-20 w-11/12 md:w-5/6 m-auto items-center px-4 md:px-24">
+      <section className="grid grid-cols-1 md:grid-cols-6 gap-8 md:gap-20 w-11/12 md:w-5/6 m-auto items-center py-8 px-4 md:px-24">
         <Formulario className="md:col-span-3" type='inscricao' />
         <div className="text-primary md:col-start-5 md:col-span-2 mb-8 md:mb-12 text-center md:text-left">
           <p className="text-3xl md:text-4xl md:-translate-x-2">Te damos boas-vindas!</p>

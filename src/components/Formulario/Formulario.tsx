@@ -11,8 +11,8 @@ export const Formulario = ({type, className}: FormularioProps) => {
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
-    nascimento: "",
     telefone: "",
+    nascimento: "",
   })
   const [telefone, setTelefone] = useState("")
 
@@ -28,17 +28,18 @@ export const Formulario = ({type, className}: FormularioProps) => {
       } else {
         data = data.replace(/(\d{2})(\d{5})(\d{1,4})/, '($1) $2-$3')
       }
+
+      //ARRUMAR O TELEFONE .replace(/[ ()-]/g, '')
       setTelefone(data)
       handleChange(e)
 }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value.replace(/[ ()-]/g, '') })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
     try {
       const response = await axios.post("http://localhost:5000/membros", formData);
       console.log("Membro criado com sucesso:", response.data);
@@ -62,13 +63,19 @@ export const Formulario = ({type, className}: FormularioProps) => {
             placeholder="Telefone" 
             minLength={10} 
             maxLength={15} 
-            pattern="\(?\d{2}\)?\d{5}\-?\d{4}" 
             onChange={reescreveTelefone} 
             value={telefone} 
             required 
           />
-          <Input type="date" className="col-span-2" name="nascimento" minLength={3} onChange={handleChange} required />
-          <textarea className="col-span-8 resize-none h-24 p-2" name="digite sua mensagem" placeholder="Digite sua mensagem aqui..."></textarea>
+          <Input 
+            type="date" 
+            className="col-span-2" 
+            name="nascimento" 
+            minLength={3} 
+            onChange={handleChange} 
+            required 
+          />
+          {/* <textarea className="col-span-8 resize-none h-24 p-2" name="digite sua mensagem" placeholder="Digite sua mensagem aqui..."></textarea> */}
           <Input type="submit" className="text-primary opacity-90 col-span-8 cursor-pointer w-1/3 justify-self-center" value="Fazer inscrição" />
         </form>
       )
