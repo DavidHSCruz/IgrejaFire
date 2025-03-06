@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from "react"
 import { Input } from "../Input/Input"
-import axios from "axios";
+import axios from "axios"
 
 interface FormularioProps {
   type: 'contato' | 'inscricao'
@@ -14,7 +14,8 @@ export const Formulario = ({type, className}: FormularioProps) => {
     telefone: "",
     nascimento: "",
   })
-  const [telefone, setTelefone] = useState("")
+
+  const [telefone, setTelefone] = useState<string>("")
 
   function reescreveTelefone(e: React.ChangeEvent<HTMLInputElement>) {
     let data = e.target.value.replace(/[^\d]/g, '')
@@ -29,54 +30,79 @@ export const Formulario = ({type, className}: FormularioProps) => {
         data = data.replace(/(\d{2})(\d{5})(\d{1,4})/, '($1) $2-$3')
       }
 
-      //ARRUMAR O TELEFONE .replace(/[ ()-]/g, '')
       setTelefone(data)
       handleChange(e)
 }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setFormData({
+      ...formData, 
+      telefone: formData.telefone.replace(/[ ()-]/g, ''), 
+      [e.target.name]: e.target.value 
+    })
   }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
     try {
       const response = await axios.post("http://localhost:5000/membros", formData);
-      console.log("Membro criado com sucesso:", response.data);
-      alert("Membro cadastrado!");
-    } catch (error) {
-      console.error("Erro ao cadastrar membro:", error);
-      alert("Erro ao cadastrar membro.")
+      console.log("Membro criado com sucesso:", response.data)
+      alert("Membro cadastrado!")
+    } catch (error: unknown) {
+      let errorMessage = 'Erro desconhecido'
+      if (axios.isAxiosError(error)) {
+        errorMessage = error.response?.data|| error.message
+      }
+      console.error("Erro ao cadastrar membro:", error)
+      alert("Erro ao cadastrar membro, " + errorMessage)
     }
   }
 
   switch (type) {
     case 'inscricao':
       return (
-        <form onSubmit={handleSubmit} className={`${className} grid grid-cols-8 gap-4 my-12`}>
-          <Input type="text" className="col-span-8" name="nome" placeholder="Nome" minLength={3} onChange={handleChange} required />
-          <Input type="email" className="col-span-4" name="email" placeholder="Email" minLength={10} onChange={handleChange} required />
+        <form onSubmit={handleSubmit} className={`${className} grid grid-cols-2 gap-4 my-12`}>
+          <Input 
+            type="text" 
+            className="col-span-2" 
+            name="nome" 
+            placeholder="Nome" 
+            minLength={6} 
+            onChange={handleChange}
+            required 
+          />
+          <Input 
+            type="email" 
+            className="col-span-2" 
+            name="email" 
+            placeholder="Email" 
+            minLength={10} 
+            onChange={handleChange}
+            required 
+          />
           <Input 
             type="tel" 
-            className="col-span-2" 
             name="telefone" 
             placeholder="Telefone" 
-            minLength={10} 
-            maxLength={15} 
-            onChange={reescreveTelefone} 
+            minLength={14}
+            maxLength={15}
+            onChange={reescreveTelefone}
             value={telefone} 
             required 
           />
           <Input 
             type="date" 
-            className="col-span-2" 
-            name="nascimento" 
-            minLength={3} 
-            onChange={handleChange} 
+            name="nascimento"
+            onChange={handleChange}
             required 
           />
           {/* <textarea className="col-span-8 resize-none h-24 p-2" name="digite sua mensagem" placeholder="Digite sua mensagem aqui..."></textarea> */}
-          <Input type="submit" className="text-primary opacity-90 col-span-8 cursor-pointer w-1/3 justify-self-center" value="Fazer inscrição" />
+          <Input 
+            type="submit" 
+            className="text-primary opacity-90 w-1/3 col-span-2 justify-self-center" 
+            value="Fazer inscrição"
+          />
         </form>
       )
   }

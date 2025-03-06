@@ -52,10 +52,11 @@ export const Grs = () => {
         {/* Bloco 3: Botão para encontrar uma GR */}
         <div className="order-5 md:order-none mt-8 md:mt-0 md:row-start-6 md:col-span-2">
           <Link 
-            to='/encontrar-gr'
-            className="bg-secondary flex justify-center items-center px-6 w-full h-20 rounded-xl text-lg font-semibold hover:brightness-125"
+            to='/grs'
+            className="bg-tertiary flex justify-center items-center px-6 w-full h-20 rounded-xl text-lg font-semibold hover:brightness-125"
+            
           >
-            Encontrar uma GR
+            Encontrar um GR (em breve...)
           </Link>
         </div>
       </section>
