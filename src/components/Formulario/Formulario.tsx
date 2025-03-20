@@ -57,7 +57,7 @@ function reescreveNascimento(e: React.ChangeEvent<HTMLInputElement>) {
 
     if (e.target.name === 'telefone') {
       modificado = telefone
-    } else if (e.target.name === 'data de nascimento') {
+    } else if (e.target.name === 'nascimento') {
       modificado = nascimento
     }else {
       modificado = e.target.value
@@ -90,7 +90,7 @@ function reescreveNascimento(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault()
 
     const tel = '5541999497870'
-    const mensagem = `Olá, meu nome é ${formData.nome} e gostaria de fazer parte da Igreja FIRE. Meu telefone é ${formData.telefone} e minha data de nascimento é ${formData.nascimento}.`
+    const mensagem = `Olá,\nme chamo ${formData.nome},\ngostaria de fazer parte da Igreja FIRE.\n\nMeu telefone é ${formData.telefone}\ne minha data de nascimento é ${formData.nascimento}.`
     const url = `https://api.whatsapp.com/send?phone=${tel}&text=${encodeURIComponent(mensagem)}`
     window.open(url, '_blank')
   }
@@ -133,7 +133,7 @@ function reescreveNascimento(e: React.ChangeEvent<HTMLInputElement>) {
           <Input 
             type="text" 
             className="col-span-2 md:col-span-1"
-            name="data de nascimento"
+            name="nascimento"
             placeholder="00/00/0000"
             pattern="^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{4}$"
             maxLength={10}

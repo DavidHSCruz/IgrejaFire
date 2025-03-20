@@ -11,7 +11,7 @@ interface InputProps {
     required?: boolean
     value?: string
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void | undefined
-    name?: 'nome' | 'email' | 'telefone' | 'data de nascimento' | undefined
+    name?: 'nome' | 'email' | 'telefone' | 'nascimento' | undefined
     type: 'text' | 'number' | 'submit' | 'tel' | 'email' | 'date'
 }
 
@@ -43,7 +43,7 @@ export const Input = ({ className = '', name, ...props }: InputProps) => {
       valueMissing: "Telefone é obrigatório.",
       patternMismatch: "Por favor, insira um telefone válido.",
     },
-    'data de nascimento': {
+    nascimento: {
       valueMissing: "Data de nascimento é obrigatória.",
       patternMismatch: "Por favor, insira uma data de nascimento válida.",
     },
